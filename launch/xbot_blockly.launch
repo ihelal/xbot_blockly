@@ -1,0 +1,4 @@
+<launch>
+	<node name="xbot_blockly_backend" pkg="xbot_blockly" type="xbot_blockly_backend.py" output="screen" />
+	<node name="xbot_blockly_webserver" pkg="xbot_blockly" type="pywebserver.py"/>
+</launch>
