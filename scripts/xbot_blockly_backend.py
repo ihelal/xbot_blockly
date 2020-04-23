@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/env python
 # Software License Agreement (BSD License)
 #
 # Copyright (c) 2015, Erle Robotics LLC
@@ -176,7 +176,7 @@ class BlocklyServerProtocol(WebSocketServerProtocol):
                         if method_name == 'play2':
                             CodeExecution.run_process(['python', 'test.py'])
                         elif method_name == 'play3':
-                            CodeExecution.run_process(['python3', 'test.py'])
+                            CodeExecution.run_process(['python', 'test.py'])
                     else:
                         rospy.logerr('Called unknown method %s', method_name)
                 else:
@@ -316,7 +316,7 @@ class BlocklyServerProtocol(WebSocketServerProtocol):
         ###########################
         # Start building the ROS node:
 
-        target.write("#!/usr/bin/env python3\n")
+        target.write("#!/usr/bin/env python\n")
         target.write("import rospy\n")
         target.write("import rosnode\n")
         target.write("import subprocess\n")
