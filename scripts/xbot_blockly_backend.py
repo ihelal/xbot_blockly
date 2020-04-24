@@ -38,7 +38,6 @@ import os
 import threading
 import signal
 import rosnode
-import mavros
 
 from subprocess import Popen
 from std_msgs.msg import String
@@ -47,17 +46,8 @@ from autobahn.asyncio.websocket import WebSocketServerProtocol, \
     WebSocketServerFactory
 from xbot_blockly.srv import SetCurrentBlockId, SetCurrentBlockIdResponse
 from std_msgs.msg import String
-from sensor_msgs.msg import Joy
-#from crab_msgs.msg import apm_imu
-#from crab_msgs.msg import BodyCommand
-#from crab_msgs.msg import BodyState
-#from crab_msgs.msg import GaitCommand
-#from crab_msgs.msg import LegIKRequest
-#from crab_msgs.msg import LegJointsState
-#from crab_msgs.msg import LegPositionState
-#from crab_msgs.msg import LegsJointsState
-from mavros_msgs.msg import OverrideRCIn
-from mavros_msgs.srv import SetMode
+#from sensor_msgs.msg import Joy
+
 
 try:
     import asyncio
