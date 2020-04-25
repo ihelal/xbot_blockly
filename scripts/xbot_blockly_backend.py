@@ -46,7 +46,11 @@ from autobahn.asyncio.websocket import WebSocketServerProtocol, \
     WebSocketServerFactory
 from xbot_blockly.srv import SetCurrentBlockId, SetCurrentBlockIdResponse
 from std_msgs.msg import String
+<<<<<<< Updated upstream
 #from sensor_msgs.msg import Joy
+=======
+from sensor_msgs.msg import Joy
+>>>>>>> Stashed changes
 
 
 try:
