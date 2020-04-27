@@ -14,6 +14,7 @@
 'use strict';
 
 goog.provide('Blockly.Blocks.xbot_sensors');
+goog.require('Blockly.Blocks.colour');
 goog.require('Blockly.Blocks');
 
 /**
@@ -36,8 +37,6 @@ init: function() {
   this.setHelpUrl('');
 }
 };
-
-Blockly.Blocks.xbot_sensors.HUE = 20;
 
 Blockly.Blocks['initialize_encoder'] = {
   /**

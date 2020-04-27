@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 /**
  * Common HSV hue for all blocks in this category.
  */
-Blockly.Blocks.colour.HUE = 100;
+Blockly.Blocks.colour.HUE = 200;
 Blockly.Blocks.colour.HSV_SATURATION = 1;
 Blockly.Blocks.colour.HSV_VALUE = 1;
 
