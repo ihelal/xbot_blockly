@@ -20,7 +20,7 @@ goog.require('Blockly.Blocks');
 /**
  * Common HSV hue for all blocks in this category.
  */
-Blockly.Blocks.xbot_connections.HUE = 20;
+Blockly.Blocks.xbot_connections.HUE = 200;
 
 Blockly.Blocks['pair_controller'] = {
   /**
@@ -30,6 +30,7 @@ Blockly.Blocks['pair_controller'] = {
 init: function() {
   this.appendDummyInput()
       .appendField("Pair controller"); 
+      this.setPreviousStatement(true);
   this.setColour(Blockly.Blocks.xbot_sensors.HUE);
   this.setTooltip('');
   this.setHelpUrl('');
