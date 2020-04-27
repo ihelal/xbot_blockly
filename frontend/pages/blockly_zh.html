@@ -37,7 +37,29 @@
     <script src="../blockly/python_compressed.js"></script>
     <script src="../blockly/php_compressed.js"></script>
     <script src="../blockly/msg/js/zh-hans.js"></script>
+    <script src="themes/test_themes.js"></script>
 
+    <script>
+      // Custom requires for the playground.
+      
+      // Rendering.
+      goog.require('Blockly.blockRendering.Debug');
+      goog.require('Blockly.minimalist.Renderer');
+      goog.require('Blockly.Themes.Modern');
+      goog.require('Blockly.Themes.Zelos');
+      goog.require('Blockly.thrasos.Renderer');
+      goog.require('Blockly.zelos.Renderer');
+      
+      // Other.
+      goog.require('Blockly.WorkspaceCommentSvg');
+      goog.require('Blockly.WorkspaceCommentSvg.render');
+      Blockly.getMainWorkspace().setTheme(Blockly.Themes.Dark);
+      populateTestThemes();
+    </script>
+<!-- 
+    <script>
++
+    </script> -->
     <!-- Ace editor -->
     <script src="../ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 
@@ -72,7 +94,7 @@
 
                     <ul style="padding-top:10px;">
                       <img style="width:30px;" src="http://127.0.0.1:1036/pages/assets/logo_dabit.png"/>
-                      <a href="https://dabit.industries/">XBOT</a>
+                      <a href="">XBOT</a>
                     </ul>
 
 
@@ -165,11 +187,11 @@
                             <!-- /.nav-second-level -->
                         </li>
 
-                        <li>
+                        <!-- <li>
                             <a href="graph.html"><i class="fa fa-sitemap fa-fw"></i> Graph</a>
-                        </li>
+                        </li> -->
 
-                        <li>
+                        <!-- <li>
                             <a id="manual_mode_button" name="manual_mode_button" href="#"> Manual control<span class="fa arrow"></span></a>
                             <ul class="nav nav-third-level">
                                 <li>
@@ -182,7 +204,7 @@
                                     <a id="stop_control_button" name="stop_control_button" href="#" onclick="ExecutionLogicModule.manual_control('stop');" style="display:none;">Stop Control</a>
                                 </li>
                             </ul>
-                        </li>
+                        </li> -->
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->
@@ -236,7 +258,11 @@
     </div>
     <!-- /#wrapper -->
 
-    <div id="blocklyDiv" style="position: absolute"></div>
+    <div id="blocklyDiv" style="position: absolute"></div> 
+
+    <select id="themeChanger" name="theme" onload="changeTheme()">
+      <option value="dark">Dark</option>
+    </select>
 
     <xml id="toolbox" style="display: none">
     <category id="catLogic" name="Logic">
@@ -373,14 +399,60 @@
     </category>
     <category id="catVariables" custom="VARIABLE" name="Variables"></category>
     <category id="catFunctions" custom="PROCEDURE" name="Functions"></category>
+    <category name="Colour" categorystyle="colour_category">
+      <block type="colour_picker"></block>
+      <block type="colour_random"></block>
+      <block type="colour_rgb">
+        <value name="RED">
+          <shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+        <value name="GREEN">
+          <shadow type="math_number">
+            <field name="NUM">50</field>
+          </shadow>
+        </value>
+        <value name="BLUE">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="colour_blend">
+        <value name="COLOUR1">
+          <shadow type="colour_picker">
+            <field name="COLOUR">#ff0000</field>
+          </shadow>
+        </value>
+        <value name="COLOUR2">
+          <shadow type="colour_picker">
+            <field name="COLOUR">#3333ff</field>
+          </shadow>
+        </value>
+        <value name="RATIO">
+          <shadow type="math_number">
+            <field name="NUM">0.5</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
     <category id="code" name="Code">
           <block type="run_code"></block>
     </category>
-    <category id="control" name="Control">
+    <category id="control" name="Control" colour="10">
+          <block type="control_mode"></block>
+          <block type="run_bot"></block>
           <block type="wait"></block>
     </category>
+
+    <category id="connections" name="Connections" colour="20">
+      <block type="pair_controller"></block>
+    </category>
+
     <sep></sep>
-    <category id="xbot" name="XBOT" colour="70">
+
+    <category id="xbot" name="XBOT Drivers" colour="30">
           <block type="circle_mode"></block>
           <block type="move_forward"></block>
           <block type="move_backward"></block>
@@ -390,13 +462,24 @@
           <block type="stop"></block>
     </category>    
     
-    <category id="xbot_sensors" name="Sensors" colour="70">
-      <block type="front_ultrasonic"></block>
-    </category>  
+    <category id="analog_sensors" name="Analog Sensors" colour="40">
+      <block type="initialize_ultrasonic"></block>
+      <block type="initialize_encoder"></block>
+      <block type="initialize_lf"></block>
+      <block type="get_ultrasonic"></block>
+      <block type="get_encoder"></block>
+      <block type="get_lf"></block>
+    </category>
 
-
+    <category id="digital_sensors" name="Digital Sensors" colour="50">
+      <block type="initialize_toggle_button"></block>
+      <block type="get_toggle_button"></block>
+    </category>
+    
+    <category id="accessories" name="XBOT Accessories" colour="60">
+      <block type="led"></block>
+    </category>
     </xml>
-
 
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -526,7 +609,6 @@
 </script>
 
 <script type="text/javascript">
-
   // restore at the beginning.
   // This is launched after the page has finished loading
   function restorelocal(){

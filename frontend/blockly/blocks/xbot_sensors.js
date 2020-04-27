@@ -33,6 +33,8 @@ init: function() {
       .appendField(new Blockly.FieldDropdown([["FRONT", "FRONT"], ["BACK", "BACK"], ["RIGHT", "RIGHT"],["LEFT", "LEFT"]]), "us_side")
       .appendField("Ultrasonic");   
   this.setColour(Blockly.Blocks.xbot_sensors.HUE);
+  this.setPreviousStatement(true);
+  this.setNextStatement(true);    
   this.setTooltip('');
   this.setHelpUrl('');
 }
@@ -49,6 +51,8 @@ init: function() {
       .appendField(new Blockly.FieldDropdown([["FRONT_RIGHT", "FRONT_RIGHT"], ["FRONT_LEFT", "FRONT_LEFT"], ["BACK_RIGHT", "BACK_RIGHT"],["BACK_LEFT", "BACK_LEFT"]]), "en_side")
       .appendField("Encoder");   
   this.setColour(Blockly.Blocks.xbot_sensors.HUE);
+  this.setPreviousStatement(true);
+  this.setNextStatement(true);    
   this.setTooltip('');
   this.setHelpUrl('');
 }
@@ -95,6 +99,44 @@ Blockly.Blocks['get_encoder'] = {
   }
 };
 
+Blockly.Blocks['initialize_lf'] = {
+  /**
+ * Block for numeric value.
+ * @this Blockly.Block
+ */
+init: function() {
+  this.appendDummyInput()
+      .appendField("Initialize")
+      .appendField(new Blockly.FieldDropdown([["CENTER", "CENTER"], ["RIGHT", "RIGHT"], ["LEFT", "LEFT"]]), "lf_side")
+      .appendField("IR");   
+  this.setColour(Blockly.Blocks.xbot_sensors.HUE);
+  this.setPreviousStatement(true);
+  this.setNextStatement(true);    
+  this.setTooltip('');
+  this.setHelpUrl('');
+}
+};
+
+Blockly.Blocks['get_lf'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Get ")
+        .appendField(new Blockly.FieldDropdown([["CENTER", "CENTER"], ["RIGHT", "RIGHT"], ["LEFT", "LEFT"]]), "get_lf_side")
+        .appendField("IR value");
+    this.setColour(Blockly.Blocks.xbot_sensors.HUE);
+    this.setOutput(true, 'Number');
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+
+    // Number block is trivial.  Use tooltip of parent block if it exists.
+    this.setTooltip(function() {
+      var parent = thisBlock.getParent();
+      return (parent && parent.tooltip) || Blockly.Msg.MATH_NUMBER_TOOLTIP;
+    });
+    this.setHelpUrl(Blockly.Msg.MATH_NUMBER_HELPURL);
+  }
+};
+
 Blockly.Blocks['initialize_toggle_button'] = {
   /**
  * Block for numeric value.
@@ -104,6 +146,8 @@ init: function() {
   this.appendDummyInput()
       .appendField("Initialize Toggle Button");
   this.setColour(Blockly.Blocks.xbot_sensors.HUE);
+  this.setPreviousStatement(true);
+  this.setNextStatement(true);    
   this.setTooltip('');
   this.setHelpUrl('');
 }

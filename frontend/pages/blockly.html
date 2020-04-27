@@ -23,13 +23,6 @@
     <!-- Custom Fonts -->
     <link href="../bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
-
     <!-- Include Blocky -->
     <script src="../blockly/blockly_uncompressed.js"></script>
     <script src="../blockly/blocks_compressed.js"></script>
@@ -56,25 +49,18 @@
       Blockly.getMainWorkspace().setTheme(Blockly.Themes.Dark);
       populateTestThemes();
     </script>
-<!-- 
-    <script>
-+
-    </script> -->
+
     <!-- Ace editor -->
     <script src="../ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 
     <!-- Ubuntu fonts -->
-    <!-- <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin"> -->
     <link rel="stylesheet" type="text/css" href="assets/css/ubuntu.css">
     <style>body { font-family: Ubuntu, sans-serif; }</style>
-
-
 </head>
 
 <body onload="restorelocal()">
 
     <div id="wrapper">
-
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
@@ -452,6 +438,12 @@
 
     <sep></sep>
 
+    <category id="xbot_picker" name="XBOT Picker" colour="30">
+      <block type="move_xy"></block>
+      <block type="home"></block>
+      <block type="move_joint"></block>
+    </category>  
+
     <category id="xbot" name="XBOT Drivers" colour="30">
           <block type="circle_mode"></block>
           <block type="move_forward"></block>
@@ -465,13 +457,10 @@
     <category id="analog_sensors" name="Analog Sensors" colour="40">
       <block type="initialize_ultrasonic"></block>
       <block type="initialize_encoder"></block>
+      <block type="initialize_lf"></block>
       <block type="get_ultrasonic"></block>
       <block type="get_encoder"></block>
-    </category>
-
-    <category id="digital_sensors" name="Digital Sensors" colour="50">
-      <block type="initialize_toggle_button"></block>
-      <block type="get_toggle_button"></block>
+      <block type="get_lf"></block>
     </category>
     
     <category id="accessories" name="XBOT Accessories" colour="60">

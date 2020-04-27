@@ -8,20 +8,20 @@
 */
 
 /**
- * @fileoverview Blocks for Dabit-Turtlebot3.
+ * @fileoverview Blocks for XBOT.
  * @author cosmo@dabitindustries.com (Cosmo Borsky)
  * @author aravind@dabitindustries.com (Aravind Krishnan)
 */
 'use strict';
 
-goog.provide('Blockly.Blocks.turtlebot3');
+goog.provide('Blockly.Blocks.xbot_driver');
 goog.require('Blockly.Blocks');
 
 
 /**
  * Common HSV hue for all blocks in this category.
  */
-Blockly.Blocks.turtlebot3.HUE = 260;
+Blockly.Blocks.xbot_driver.HUE = 260;
 
 
 Blockly.Blocks['circle_mode'] = {

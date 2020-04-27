@@ -59,3 +59,19 @@ Blockly.Python['get_toggle_button'] = function(block) {
     code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/get_toggle_button.py");
     return code;
 };
+
+Blockly.Python['initialize_lf'] = function(block) {
+    var lf_side = block.getFieldValue('lf_side');
+    var code = "";
+    code += "lf_side = \"" + lf_side.toString() + "\"\n";
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/init_ir.py");
+    return code;
+};
+
+Blockly.Python['get_lf'] = function(block) {
+    var get_lf_side = block.getFieldValue('get_lf_side');
+    var code = "";
+    code += "get_lf_side = \"" + get_lf_side.toString() + "\"\n";
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/get_ir.py");
+    return code;
+};
