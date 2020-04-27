@@ -94,3 +94,35 @@ Blockly.Blocks['get_encoder'] = {
     this.setHelpUrl(Blockly.Msg.MATH_NUMBER_HELPURL);
   }
 };
+
+Blockly.Blocks['initialize_toggle_button'] = {
+  /**
+ * Block for numeric value.
+ * @this Blockly.Block
+ */
+init: function() {
+  this.appendDummyInput()
+      .appendField("Initialize Toggle Button");
+  this.setColour(Blockly.Blocks.xbot_sensors.HUE);
+  this.setTooltip('');
+  this.setHelpUrl('');
+}
+};
+
+Blockly.Blocks['get_toggle_button'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Get Toggle Button Value");
+    this.setColour(Blockly.Blocks.xbot_sensors.HUE);
+    this.setOutput(true, 'Number');
+    // Assign 'this' to a variable for use in the tooltip closure below.
+    var thisBlock = this;
+
+    // Number block is trivial.  Use tooltip of parent block if it exists.
+    this.setTooltip(function() {
+      var parent = thisBlock.getParent();
+      return (parent && parent.tooltip) || Blockly.Msg.MATH_NUMBER_TOOLTIP;
+    });
+    this.setHelpUrl(Blockly.Msg.MATH_NUMBER_HELPURL);
+  }
+};

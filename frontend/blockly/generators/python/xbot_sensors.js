@@ -47,3 +47,15 @@ Blockly.Python['get_encoder'] = function(block) {
     code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/ultrasonic.py");
     return code;
 };
+
+Blockly.Python['initialize_toggle_button'] = function(block) {
+    var code = "";
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/ultrasonic.py");
+    return code;
+};
+
+Blockly.Python['get_toggle_button'] = function(block) {
+    var code = "";
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/get_toggle_button.py");
+    return code;
+};
