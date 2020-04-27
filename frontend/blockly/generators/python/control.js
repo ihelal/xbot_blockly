@@ -37,6 +37,12 @@ Blockly.Python['wait'] = function(block) {
     return code;
 };
 
+Blockly.Python['run_bot'] = function(block) {
+    var code = "";
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_controller/run_bot.py");
+    return code;
+};
+
 Blockly.Python['control_mode'] = function(block) {
     var mode = block.getFieldValue('mode');
     var code = "";

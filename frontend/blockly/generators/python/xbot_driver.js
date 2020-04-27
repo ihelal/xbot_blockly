@@ -14,7 +14,7 @@
 */
 'use strict';
 
-goog.provide('Blockly.Python.turtlebot3');
+goog.provide('Blockly.Python.xbot_driver');
 goog.require('Blockly.Python');
 
 Blockly.Python['circle_mode'] = function(block) {
@@ -25,7 +25,7 @@ Blockly.Python['circle_mode'] = function(block) {
   var code = "";
   code += "dropdown_direction = \"" + dropdown_direction.toString() + "\"\n";
   code += "dropdown_speed = \"" + dropdown_speed.toString() + "\"\n";
-  code += Blockly.readPythonFile("../blockly/generators/python/scripts/turtlebot3/circle_mode.py");
+  code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_driver/circle_mode.py");
   return code;
 
 };
@@ -38,7 +38,7 @@ Blockly.Python['move_forward'] = function(block) {
   var code = "";
   code += "seconds = \"" + seconds.toString() + "\"\n";
   code += "dropdown_speed = \"" + dropdown_speed.toString() + "\"\n";
-  code += Blockly.readPythonFile("../blockly/generators/python/scripts/turtlebot3/move_forward.py");
+  code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_driver/move_forward.py");
   return code;
 
 };
@@ -51,7 +51,7 @@ Blockly.Python['move_backward'] = function(block) {
   var code = "";
   code += "seconds = \"" + seconds.toString() + "\"\n";
   code += "dropdown_speed = \"" + dropdown_speed.toString() + "\"\n";
-  code += Blockly.readPythonFile("../blockly/generators/python/scripts/turtlebot3/move_backward.py");
+  code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_driver/move_backward.py");
   return code;
 
 };
@@ -64,7 +64,7 @@ Blockly.Python['turn_left'] = function(block) {
   var code = "";
   code += "seconds = \"" + seconds.toString() + "\"\n";
   code += "dropdown_speed = \"" + dropdown_speed.toString() + "\"\n";
-  code += Blockly.readPythonFile("../blockly/generators/python/scripts/turtlebot3/turn_left.py");
+  code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_driver/turn_left.py");
   return code;
 
 };
@@ -77,7 +77,7 @@ Blockly.Python['turn_right'] = function(block) {
   var code = "";
   code += "seconds = \"" + seconds.toString() + "\"\n";
   code += "dropdown_speed = \"" + dropdown_speed.toString() + "\"\n";
-  code += Blockly.readPythonFile("../blockly/generators/python/scripts/turtlebot3/turn_right.py");
+  code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_driver/turn_right.py");
   return code;
 
 };
@@ -90,7 +90,7 @@ Blockly.Python['turn_degrees'] = function(block) {
     var code = "";
     code += "dropdown_direction = \"" + dropdown_direction.toString() + "\"\n";
     code += "degrees = \"" + degrees.toString() + "\"\n";
-    code += Blockly.readPythonFile("../blockly/generators/python/scripts/turtlebot3/turn_degrees.py");
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_driver/turn_degrees.py");
     return code;
 
 };
@@ -98,7 +98,7 @@ Blockly.Python['turn_degrees'] = function(block) {
 Blockly.Python['stop'] = function(block) {
     
     var code = "";
-    code += Blockly.readPythonFile("../blockly/generators/python/scripts/turtlebot3/stop.py");
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_driver/stop.py");
     return code;
 
 };

@@ -61,4 +61,15 @@ Blockly.Blocks['control_mode'] = {
   }
 };
 
+Blockly.Blocks['run_bot'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Run XBOT");
+    this.setPreviousStatement(true);
+    this.setColour(Blockly.Blocks.control.HUE);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
 

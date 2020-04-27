@@ -30,7 +30,8 @@ Blockly.Blocks['pair_controller'] = {
 init: function() {
   this.appendDummyInput()
       .appendField("Pair controller"); 
-      this.setPreviousStatement(true);
+  this.setPreviousStatement(true);
+  this.setNextStatement(true);
   this.setColour(Blockly.Blocks.xbot_sensors.HUE);
   this.setTooltip('');
   this.setHelpUrl('');

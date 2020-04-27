@@ -440,16 +440,19 @@
     <category id="code" name="Code">
           <block type="run_code"></block>
     </category>
-    <category id="control" name="Control">
+    <category id="control" name="Control" colour="150">
           <block type="control_mode"></block>
+          <block type="run_bot"></block>
           <block type="wait"></block>
     </category>
 
-    <category id="connections" name="Connections">
+    <category id="connections" name="Connections" colour="150">
       <block type="pair_controller"></block>
     </category>
+
     <sep></sep>
-    <category id="xbot" name="XBOT" colour="70">
+
+    <category id="xbot" name="XBOT Drivers" colour="70">
           <block type="circle_mode"></block>
           <block type="move_forward"></block>
           <block type="move_backward"></block>
@@ -464,7 +467,11 @@
       <block type="initialize_encoder"></block>
       <block type="get_ultrasonic"></block>
       <block type="get_encoder"></block>
-    </category>  
+    </category>
+    
+    <category id="accessories" name="XBOT Accessories" colour="170">
+      <block type="led"></block>
+    </category>
     </xml>
 
     <!-- jQuery -->
