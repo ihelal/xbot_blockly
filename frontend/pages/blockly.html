@@ -37,7 +37,29 @@
     <script src="../blockly/python_compressed.js"></script>
     <script src="../blockly/php_compressed.js"></script>
     <script src="../blockly/msg/js/en.js"></script>
+    <script src="themes/test_themes.js"></script>
 
+    <script>
+      // Custom requires for the playground.
+      
+      // Rendering.
+      goog.require('Blockly.blockRendering.Debug');
+      goog.require('Blockly.minimalist.Renderer');
+      goog.require('Blockly.Themes.Modern');
+      goog.require('Blockly.Themes.Zelos');
+      goog.require('Blockly.thrasos.Renderer');
+      goog.require('Blockly.zelos.Renderer');
+      
+      // Other.
+      goog.require('Blockly.WorkspaceCommentSvg');
+      goog.require('Blockly.WorkspaceCommentSvg.render');
+      Blockly.getMainWorkspace().setTheme(Blockly.Themes.Dark);
+      populateTestThemes();
+    </script>
+<!-- 
+    <script>
++
+    </script> -->
     <!-- Ace editor -->
     <script src="../ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 
@@ -236,7 +258,11 @@
     </div>
     <!-- /#wrapper -->
 
-    <div id="blocklyDiv" style="position: absolute"></div>
+    <div id="blocklyDiv" style="position: absolute"></div> 
+
+    <select id="themeChanger" name="theme" onload="changeTheme()">
+      <option value="dark">Dark</option>
+    </select>
 
     <xml id="toolbox" style="display: none">
     <category id="catLogic" name="Logic">
@@ -377,6 +403,7 @@
           <block type="run_code"></block>
     </category>
     <category id="control" name="Control">
+          <block type="control_mode"></block>
           <block type="wait"></block>
     </category>
     <sep></sep>
@@ -390,13 +417,13 @@
           <block type="stop"></block>
     </category>    
     
-    <category id="xbot_sensors" name="Sensors" colour="70">
-      <block type="front_ultrasonic"></block>
+    <category id="analog_sensors" name="Analog Sensors" colour="150">
+      <block type="initialize_ultrasonic"></block>
+      <block type="initialize_encoder"></block>
+      <block type="get_ultrasonic"></block>
+      <block type="get_encoder"></block>
     </category>  
-
-
     </xml>
-
 
     <!-- jQuery -->
     <script src="../bower_components/jquery/dist/jquery.min.js"></script>
@@ -526,7 +553,6 @@
 </script>
 
 <script type="text/javascript">
-
   // restore at the beginning.
   // This is launched after the page has finished loading
   function restorelocal(){

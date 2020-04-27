@@ -32,7 +32,7 @@ goog.require('Blockly.Blocks');
 /**
  * Common HSV hue for all blocks in this category.
  */
-//Blockly.Blocks.variables.HUE = 180; 
+Blockly.Blocks.control.HUE = 180; 
 
 
 Blockly.Blocks['wait'] = {
@@ -45,6 +45,20 @@ Blockly.Blocks['wait'] = {
     this.setNextStatement(true);
     this.setColour(180);
     this.setTooltip('');
-    this.setHelpUrl('http://erlerobotics.com/docs/Robot_Operating_System/ROS/Blockly/Intro.html');
+    this.setHelpUrl('');
   }
 };
+
+Blockly.Blocks['control_mode'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("control_mode")
+        .appendField(new Blockly.FieldDropdown([["MANUAL", "MANUAL"], ["AUTONOMOUS", "AUTONOMOUS"]]), "mode");
+    this.setNextStatement(true);
+    this.setColour(Blockly.Blocks.control.HUE);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
+

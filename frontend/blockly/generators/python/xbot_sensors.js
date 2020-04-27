@@ -16,21 +16,34 @@
 goog.provide('Blockly.Python.xbot_sensors');
 goog.require('Blockly.Python');
 
-// Blockly.Python['circle_mode'] = function(block) {
-
-//   var dropdown_direction = block.getFieldValue('direction');
-//   var dropdown_speed = block.getFieldValue('speed');
-
-//   var code = "";
-//   code += "dropdown_direction = \"" + dropdown_direction.toString() + "\"\n";
-//   code += "dropdown_speed = \"" + dropdown_speed.toString() + "\"\n";
-//   code += Blockly.readPythonFile("../blockly/generators/python/scripts/turtlebot3/circle_mode.py");
-//   return code;
-
-// };
-
-Blockly.Python['front_ultrasonic'] = function(block) {
+Blockly.Python['initialize_ultrasonic'] = function(block) {
+    var us_side = block.getFieldValue('us_side');
     var code = "";
+    code += "us_side = \"" + us_side.toString() + "\"\n";
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/ultrasonic.py");
+    return code;
+};
+
+Blockly.Python['initialize_encoder'] = function(block) {
+    var us_side = block.getFieldValue('en_side');
+    var code = "";
+    code += "en_side = \"" + us_side.toString() + "\"\n";
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/ultrasonic.py");
+    return code;
+};
+
+Blockly.Python['get_ultrasonic'] = function(block) {
+    var us_side = block.getFieldValue('get_us_side');
+    var code = "";
+    code += "us_side = \"" + us_side.toString() + "\"\n";
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/ultrasonic.py");
+    return code;
+};
+
+Blockly.Python['get_encoder'] = function(block) {
+    var encoder_side = block.getFieldValue('get_en_side');
+    var code = "";
+    code += "encoder_side = \"" + encoder_side.toString() + "\"\n";
     code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/ultrasonic.py");
     return code;
 };
