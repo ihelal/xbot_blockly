@@ -30,8 +30,8 @@ Blockly.Blocks['initialize_ultrasonic'] = {
 init: function() {
   this.appendDummyInput()
       .appendField("Initialize")
-      .appendField(new Blockly.FieldDropdown([["FRONT", "FRONT"], ["BACK", "BACK"], ["RIGHT", "RIGHT"],["LEFT", "LEFT"]]), "us_side")
-      .appendField("Ultrasonic");   
+      .appendField(new Blockly.FieldDropdown([["ALL", "ALL"],["FRONT", "FRONT"], ["BACK", "BACK"], ["RIGHT", "RIGHT"],["LEFT", "LEFT"]]), "us_side")
+      .appendField("Ultrasonic(s)");   
   this.setColour(Blockly.Blocks.xbot_sensors.HUE);
   this.setPreviousStatement(true);
   this.setNextStatement(true);    
@@ -48,8 +48,8 @@ Blockly.Blocks['initialize_encoder'] = {
 init: function() {
   this.appendDummyInput()
       .appendField("Initialize")
-      .appendField(new Blockly.FieldDropdown([["FRONT_RIGHT", "FRONT_RIGHT"], ["FRONT_LEFT", "FRONT_LEFT"], ["BACK_RIGHT", "BACK_RIGHT"],["BACK_LEFT", "BACK_LEFT"]]), "en_side")
-      .appendField("Encoder");   
+      .appendField(new Blockly.FieldDropdown([["ALL", "ALL"],["FRONT_RIGHT", "FRONT_RIGHT"], ["FRONT_LEFT", "FRONT_LEFT"], ["BACK_RIGHT", "BACK_RIGHT"],["BACK_LEFT", "BACK_LEFT"]]), "en_side")
+      .appendField("Encoder(s)");   
   this.setColour(Blockly.Blocks.xbot_sensors.HUE);
   this.setPreviousStatement(true);
   this.setNextStatement(true);    
@@ -107,8 +107,8 @@ Blockly.Blocks['initialize_lf'] = {
 init: function() {
   this.appendDummyInput()
       .appendField("Initialize")
-      .appendField(new Blockly.FieldDropdown([["CENTER", "CENTER"], ["RIGHT", "RIGHT"], ["LEFT", "LEFT"]]), "lf_side")
-      .appendField("IR");   
+      .appendField(new Blockly.FieldDropdown([["ALL", "ALL"],["CENTER", "CENTER"], ["RIGHT", "RIGHT"], ["LEFT", "LEFT"]]), "lf_side")
+      .appendField("IR(s)");   
   this.setColour(Blockly.Blocks.xbot_sensors.HUE);
   this.setPreviousStatement(true);
   this.setNextStatement(true);    
