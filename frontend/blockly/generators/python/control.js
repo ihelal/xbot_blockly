@@ -47,6 +47,6 @@ Blockly.Python['control_mode'] = function(block) {
     var mode = block.getFieldValue('mode');
     var code = "";
     code += "mode = \"" + mode.toString() + "\"\n";
-    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_sensors/ultrasonic.py");
+    code += Blockly.readPythonFile("../blockly/generators/python/scripts/xbot_controller/mode.py");
     return code;
 };

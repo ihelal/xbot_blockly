@@ -1,22 +1,22 @@
 import rospy, sys
 import time
-from xbot_control.srv import Pair, PairResponse
+from xbot_control.srv import Mode, ModeResponse
 
 rate = rospy.Rate(10) # 10Hz
 flag=False #time flag
 
-def pair_controller():
-    rospy.wait_for_service('pair')
+def _ctl_mode():
+    rospy.wait_for_service('mode')
     try:
-        pair_ctl = rospy.ServiceProxy('pair', Pair)
-        resp1 = pair_ctl("connect")
+        ctl_mode = rospy.ServiceProxy('mode', Mode)
+        resp1 = ctl_mode(1)
         return resp1.result
     except rospy.ServiceException, e:
         print "Service call failed: %s"%e
 
 while not rospy.is_shutdown():
     if flag == False:
-        flag =  pair_controller()
+        flag =  _ctl_mode()
     elif flag == True:
         sys.exit()
     rate.sleep()
